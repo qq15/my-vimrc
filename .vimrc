@@ -2,6 +2,8 @@
 " http://alpha87.cn
 " version: 2.8
 
+call pathogen#infect()
+
 " 光标键失效
 """""""""""""""""""""
 noremap <Up> <Nop>
@@ -217,6 +219,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'fatih/vim-go'
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
 Plugin 'godlygeek/tabular'
 Plugin 'mxw/vim-jsx'
 Plugin 'mattn/emmet-vim'
@@ -346,3 +350,14 @@ let g:rbpt_loadcmd_toggle = 0
 " 括号自动补全
 """"""""""""""""""
 au FileType python let b:delimitMate_nesting_quotes = ['"']
+
+" 为前端代码设置不同空格数替代TAB
+""""""""""""""""""
+autocmd FileType javascript,html,css,xml set ai
+autocmd FileType javascript,html,css,xml set sw=2
+autocmd FileType javascript,html,css,xml set ts=2
+autocmd FileType javascript,html,css,xml set sts=2
+
+" html auto-complete
+""""""""""""""""""
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
